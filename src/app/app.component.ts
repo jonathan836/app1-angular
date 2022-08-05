@@ -8,3 +8,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'App';
 }
+
+export class Neightbor {
+  constructor (name:string, lastname:string, position:string, salary:number) {
+    this.name = name;
+    this.lastname = lastname;
+    this.position = position;
+    this.salary = salary;
+  }
+
+  name:string = '';
+  lastname:string = '';
+  position:string = '';
+  salary:number = 0;
+}
