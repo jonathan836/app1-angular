@@ -32,4 +32,21 @@
   </form>
 </div>
 
-<!-- <app-home *ngFor="let empleado of empleados; let i = index" [listEmployee]="empleado" [index]="i"></app-home> -->
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr style="background-color:aquamarine;">
+        <th scope="col">ID</th>
+        <th scope="col">Alumno</th>
+        <th scope="col">Herramientas</th>
+      </tr>
+    </thead>
+  </table>
+  <tbody>
+    <tr>
+      <th scope="row">
+        <app-child *ngFor="let neighbor of neighbors; let i = index" [listNeighbor]="neighbor" [index]="i"></app-child>
+      </th>
+    </tr>
+  </tbody>
+</div>

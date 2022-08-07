@@ -10,6 +10,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { DataServices } from './data/data.services';
+import { NeighborService } from './neighbor.service';
+import { ChildComponent } from './child/child.component';
 
 const appRoutes:Routes = [
   {path: '', component:HomeComponent},
@@ -21,7 +24,11 @@ const appRoutes:Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent,
+    AboutUsComponent,
+    ErrorComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,10 @@ const appRoutes:Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    NeighborService,
+    DataServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

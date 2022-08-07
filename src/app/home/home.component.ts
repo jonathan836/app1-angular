@@ -9,9 +9,9 @@ import { NeighborService } from '../neighbor.service';
 })
 export class HomeComponent implements OnInit {
 
-  // listEmployee: Empleado;
+  listEmployee!:Neightbor;
 
-  // index: number;
+  index!: number;
 
   textName:string = '';
   textLastName:string = '';
