@@ -4,7 +4,7 @@
       <div>
         {{index + 1}}. {{listNeighbor.name}} {{listNeighbor.lastname}} {{listNeighbor.position}} {{listNeighbor.salary}}
         <a [routerLink]="[ '/update', index]" [queryParams]="{action: '1'}">
-          Upgrade
+          Update
         </a>
 
         <a [routerLink]="[ '/update', index]" [queryParams]="{action: '2'}">

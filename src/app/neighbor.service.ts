@@ -8,40 +8,40 @@ export class NeighborService {
         private dataService:DataServices,
     ){}
 
-    setEmployees (myNeighbor:Neightbor[]) {
+    setNeighbors (myNeighbor:Neightbor[]) {
         this.neighbors = myNeighbor;
     }
 
-    getEmployees () {
+    getNeighbors () {
         return this.dataService.loadNeighbors();
     }
 
     neighbors:Neightbor[] = [];
 
-    addEmployeeService (neighbor:Neightbor) {
+    addNeighborService (neighbor:Neightbor) {
         this.neighbors.push(neighbor);
 
         this.dataService.saveNeighbors(this.neighbors);
     }
 
-    searchEmployee (index:number) {
+    searchNeighbor (index:number) {
         let neighbor:Neightbor = this.neighbors[index];
 
         return neighbor;
     }
 
-    updateEmployee (index:number, neighbor:Neightbor) {
-        let employeeUpdated = this.neighbors[index];
+    updateNeighbor (index:number, neighbor:Neightbor) {
+        let neighborUpdated = this.neighbors[index];
 
-        employeeUpdated.name = neighbor.name;
-        employeeUpdated.lastname = neighbor.lastname;
-        employeeUpdated.position = neighbor.position;
-        employeeUpdated.salary = neighbor.salary;
+        neighborUpdated.name = neighbor.name;
+        neighborUpdated.lastname = neighbor.lastname;
+        neighborUpdated.position = neighbor.position;
+        neighborUpdated.salary = neighbor.salary;
 
         this.dataService.upgradeNeighbors(index, neighbor);
     }
 
-    deleteEmployee (index:number) {
+    deleteNeighbor (index:number) {
         this.neighbors.splice(index, 1);
 
         this.dataService.deleteNeighbors(index);

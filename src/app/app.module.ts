@@ -13,12 +13,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { DataServices } from './data/data.services';
 import { NeighborService } from './neighbor.service';
 import { ChildComponent } from './child/child.component';
+import { UpdateComponent } from './update/update.component';
 
 const appRoutes:Routes = [
   {path: '', component:HomeComponent},
   {path: 'contact', component:ContactComponent},
   {path: 'aboutUs', component:AboutUsComponent},
-  // {path: 'update/:id', component:UpdateComponent},
+  {path: 'update/:id', component:UpdateComponent},
   {path: '**', component:ErrorComponent}
 ]
 @NgModule({
@@ -28,7 +29,8 @@ const appRoutes:Routes = [
     ContactComponent,
     AboutUsComponent,
     ErrorComponent,
-    ChildComponent
+    ChildComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -25,11 +25,11 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.employeesService.getEmployees().subscribe(
-      myEmployees => {
-        console.log(myEmployees);
-        this.neighbors = Object.values(myEmployees);
-        this.employeesService.setEmployees(this.neighbors);
+    this.employeesService.getNeighbors().subscribe(
+      myNeighbors => {
+        console.log(myNeighbors);
+        this.neighbors = Object.values(myNeighbors);
+        this.employeesService.setNeighbors(this.neighbors);
       }
     );
   }
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   addNeighbor () {
     let newEmployee = new Neightbor(this.textName, this.textLastName, this.textPosition, this.textSalary);
 
-    this.employeesService.addEmployeeService(newEmployee);
+    this.employeesService.addNeighborService(newEmployee);
   }
 
 }
