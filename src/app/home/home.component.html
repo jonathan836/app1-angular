@@ -1,3 +1,5 @@
+<br>
+
 <div class="container">
   <div class="col">
   </div>
@@ -32,19 +34,32 @@
   </form>
 </div>
 
+<br>
+
 <div class="container">
-  <table class="table">
+  <table class="table table-striped">
     <thead>
-      <tr style="background-color:aquamarine;">
+      <tr>
         <th scope="col">ID</th>
         <th scope="col">Alumno</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Salario</th>
         <th scope="col">Herramientas</th>
       </tr>
     </thead>
+    <tbody>
+      <tr *ngFor="let neighbor of neighbors | paginate: { itemsPerPage: 5, currentPage: pages }; let i = index; ">
+        <th> {{i + 1}} </th>
+        <td> {{neighbor.name}} {{neighbor.lastname}} </td>
+        <td> {{neighbor.position}} </td>
+        <td> {{neighbor.salary}} </td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="[ '/update', i]" [queryParams]="{action: '1'}">Update</button>
+
+          <button class="btn btn-primary" [routerLink]="[ '/update', i]" [queryParams]="{action: '2'}">Delete</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
-  <tbody>
-    <tr>
-      <app-child *ngFor="let neighbor of neighbors; let i = index" [listNeighbor]="neighbor" [index]="i"></app-child>
-    </tr>
-  </tbody>
+  <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 </div>

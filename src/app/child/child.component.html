@@ -1,8 +1,13 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col">
       <div>
         {{index + 1}}. {{listNeighbor.name}} {{listNeighbor.lastname}} {{listNeighbor.position}} {{listNeighbor.salary}}
+
+        <button class="btn btn-primary" [routerLink]="[ '/update', index]" [queryParams]="{action: '1'}">Update</button>
+
+        <button class="btn btn-primary" [routerLink]="[ '/update', index]" [queryParams]="{action: '2'}">Delete</button>
+      
         <a [routerLink]="[ '/update', index]" [queryParams]="{action: '1'}">
           Update
         </a>
@@ -12,11 +17,11 @@
         </a>
       </div>
 
-      <!-- <app-features-employee (featuresEmployee)="addFeature($event)"></app-features-employee>
+      <app-features-employee (featuresEmployee)="addFeature($event)"></app-features-employee>
   
         <ul style="list-style: none;">
           <li *ngFor="let feature of arrayFeatures">{{feature}}</li>
-        </ul> -->
+        </ul>
     </div>
   </div>
-</div>
+</div> -->

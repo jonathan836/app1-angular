@@ -9,8 +9,7 @@ import { NeighborService } from '../neighbor.service';
 })
 export class HomeComponent implements OnInit {
 
-  listEmployee!:Neightbor;
-
+  listNeighbor!:Neightbor;
   index!: number;
 
   textName:string = '';
@@ -20,16 +19,18 @@ export class HomeComponent implements OnInit {
 
   neighbors:Neightbor[] = [];
 
+  pages:number = 1;
+
   constructor(
-    private employeesService:NeighborService
+    private neighborsService:NeighborService
   ) { }
 
   ngOnInit(): void {
-    this.employeesService.getNeighbors().subscribe(
+    this.neighborsService.getNeighbors().subscribe(
       myNeighbors => {
         console.log(myNeighbors);
         this.neighbors = Object.values(myNeighbors);
-        this.employeesService.setNeighbors(this.neighbors);
+        this.neighborsService.setNeighbors(this.neighbors);
       }
     );
   }
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
   addNeighbor () {
     let newEmployee = new Neightbor(this.textName, this.textLastName, this.textPosition, this.textSalary);
 
-    this.employeesService.addNeighborService(newEmployee);
+    this.neighborsService.addNeighborService(newEmployee);
   }
 
 }

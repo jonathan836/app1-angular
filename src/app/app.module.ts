@@ -14,6 +14,7 @@ import { DataServices } from './data/data.services';
 import { NeighborService } from './neighbor.service';
 import { ChildComponent } from './child/child.component';
 import { UpdateComponent } from './update/update.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const appRoutes:Routes = [
   {path: '', component:HomeComponent},
@@ -38,6 +39,7 @@ const appRoutes:Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [
     NeighborService,
