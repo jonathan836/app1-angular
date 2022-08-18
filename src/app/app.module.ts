@@ -17,13 +17,16 @@ import { UpdateComponent } from './update/update.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes:Routes = [
-  {path: '', component:HomeComponent},
+  {path: 'home', component:HomeComponent},
   {path: 'contact', component:ContactComponent},
   {path: 'aboutUs', component:AboutUsComponent},
   {path: 'update/:id', component:UpdateComponent},
+  {path: '', component:LoginComponent},
   {path: '**', component:ErrorComponent}
+  
 ]
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ const appRoutes:Routes = [
     AboutUsComponent,
     ErrorComponent,
     ChildComponent,
-    UpdateComponent
+    UpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
