@@ -11,24 +11,27 @@
 
     <div class="form-group col-md-3">
       <label for="lastname">Apellido: </label>
-      <input type="text" name="lastname" id="lastname" placeholder="Lastname" class="form-control"
-        [(ngModel)]="textLastName">
+      <input type="text" name="lastname" id="lastname" placeholder="Lastname" class="form-control" [(ngModel)]="textLastName">
     </div>
 
     <div class="form-group col-md-3">
       <label for="position">Cargo: </label>
-      <input type="text" name="position" id="position" placeholder="Position" class="form-control"
-        [(ngModel)]="textPosition">
+      <input type="text" name="position" id="position" placeholder="Position" class="form-control" [(ngModel)]="textPosition">
     </div>
 
     <div class="form-group col-md-3">
       <label for="salary">Salario: </label>
-      <input type="number" name="salary" id="salary" placeholder="Salaty" class="form-control" [(ngModel)]="textSalary">
+      <input type="number" name="salary" id="salary" placeholder="Salary" class="form-control" [(ngModel)]="textSalary">
     </div>
 
     <div class="row">
       <div class="col">
-        <button type="submit" class="btn btn-primary" (click)="addNeighbor()" style="margin-top: 35px;">Add</button>
+        <button type="submit" class="btn btn-primary" (click)="addNeighbor(count = count + 1)" style="margin-top: 35px;" [disabled]="textName === '' || textLastName === '' || textPosition === '' || textSalary === 0">Agregar</button>
+      </div>
+
+      <div class="form-group col-md-2">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on"
+          placeholder="Buscar" style="margin-top: 35px;">
       </div>
     </div>
   </form>
@@ -48,18 +51,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let neighbor of neighbors | paginate: { itemsPerPage: 5, currentPage: pages }; let i = index; ">
+      <tr
+        *ngFor="let neighbor of neighbors | filter:searchText; let i = index; ">
         <th> {{i + 1}} </th>
         <td> {{neighbor.name}} {{neighbor.lastname}} </td>
         <td> {{neighbor.position}} </td>
         <td> {{neighbor.salary}} </td>
         <td>
-          <button class="btn btn-primary" [routerLink]="[ '/update', i]" [queryParams]="{action: '1'}">Update</button>
+          <button class="btn btn-primary" [routerLink]="[ '/update', i]" [queryParams]="{action: '1'}">Actualizar</button>
 
-          <button class="btn btn-primary" [routerLink]="[ '/update', i]" [queryParams]="{action: '2'}">Delete</button>
+          <button class="btn btn-primary" [routerLink]="[ '/update', i]" [queryParams]="{action: '2'}">Eliminar</button>
         </td>
       </tr>
     </tbody>
   </table>
-  <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+  <!-- <pagination-controls (pageChange)="pages = $event"></pagination-controls>  paginate: { itemsPerPage: 5, currentPage: pages }-->
+  
+  <!-- <ngb-pagination [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination> -->
 </div>
+
+<!-- <button class="btn btn-primary" (click)="count = count + 1">Click</button>
+{{count}}  -->
+

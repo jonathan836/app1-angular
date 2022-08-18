@@ -16,10 +16,11 @@ export class HomeComponent implements OnInit {
   textLastName:string = '';
   textPosition:string = '';
   textSalary:number = 0;
-
   neighbors:Neightbor[] = [];
 
-  pages:number = 1;
+  pages = 1;
+  count:number = 0;
+  searchText:any;
 
   constructor(
     private neighborsService:NeighborService
@@ -35,10 +36,9 @@ export class HomeComponent implements OnInit {
     );
   }
   
-  addNeighbor () {
-    let newEmployee = new Neightbor(this.textName, this.textLastName, this.textPosition, this.textSalary);
+  addNeighbor (count:number) {
+    let newEmployee = new Neightbor(this.textName, this.textLastName, this.textPosition, this.textSalary, count);
 
     this.neighborsService.addNeighborService(newEmployee);
   }
-
 }

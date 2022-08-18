@@ -37,6 +37,7 @@ export class NeighborService {
         neighborUpdated.lastname = neighbor.lastname;
         neighborUpdated.position = neighbor.position;
         neighborUpdated.salary = neighbor.salary;
+        neighborUpdated.index = neighbor.index
 
         this.dataService.upgradeNeighbors(index, neighbor);
     }

@@ -21,7 +21,7 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.action = parseInt(this.route.snapshot.queryParams['action']);
-
+    
     this.neighbors = this.employeesService.neighbors
     this.index = this.route.snapshot.params['id'];
     let neighbor:Neightbor = this.employeesService.searchNeighbor(this.index);
@@ -30,6 +30,7 @@ export class UpdateComponent implements OnInit {
     this.textLastName = neighbor.lastname;
     this.textPosition = neighbor.position;
     this.textSalary = neighbor.salary;
+    this.id = neighbor.index;
   }
 
   goToHome() {
@@ -38,9 +39,7 @@ export class UpdateComponent implements OnInit {
 
   updateNeighbor () {
     if (this.action == 1) {
-      let myEmployee = new Neightbor(this.textName, this.textLastName, this.textPosition, this.textSalary);
-      // this.myService.showMessage('Nombre del empleado: ' + newEmployee.name + ' ' + newEmployee.lastname);
-      // this.empleados.push(newEmployee);
+      let myEmployee = new Neightbor(this.textName, this.textLastName, this.textPosition, this.textSalary, this.id);
       this.employeesService.updateNeighbor(this.index, myEmployee);
 
       this.router.navigate(['']);
@@ -55,5 +54,6 @@ export class UpdateComponent implements OnInit {
   textLastName:string = '';
   textPosition:string = '';
   textSalary:number = 0;
+  id:number = 0;
   index!:number;
 }
