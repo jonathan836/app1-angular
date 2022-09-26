@@ -18,6 +18,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ServiceAuth } from './data/auth.service';
 
 const appRoutes:Routes = [
   {path: 'home', component:HomeComponent},
@@ -47,11 +51,14 @@ const appRoutes:Routes = [
     HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
   ],
   providers: [
     NeighborService,
-    DataServices
+    DataServices,
+    ServiceAuth
   ],
   bootstrap: [AppComponent]
 })
