@@ -28,9 +28,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.neighborsService.getNeighbors().subscribe(
-      myNeighbors => {
-        console.log(myNeighbors);
-        this.neighbors = Object.values(myNeighbors);
+      response => {
+        console.log('Lista: ', response);
+        this.neighbors = Object.values(response);
         this.neighborsService.setNeighbors(this.neighbors);
       }
     );

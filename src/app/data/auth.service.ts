@@ -30,7 +30,7 @@ export class ServiceAuth {
     }
   }
 
-  async registro(email: string, password: string) {
+  async register(email: string, password: string) {
     try {
       return await this._auth.createUserWithEmailAndPassword(email, password);
     }

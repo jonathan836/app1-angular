@@ -1,16 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/home">App</a>
+  <a class="navbar-brand" [routerLink]="['/']">App</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/home">Home</a>
+        <a class="nav-link" [routerLink]="['/']">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/contact">Contactos</a>
+        <a class="nav-link" [routerLink]="['/contact']">Contactos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/aboutUs">Sobre Nosotros</a>
+        <a class="nav-link" [routerLink]="['/aboutUs']">Sobre Nosotros</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="register">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/register']" style="margin-right: 15px;">Registrar</a>
       </li>
     </ul>
   </div>

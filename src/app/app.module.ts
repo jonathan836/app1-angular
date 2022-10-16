@@ -22,12 +22,14 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ServiceAuth } from './data/auth.service';
+import { RegisterComponent } from './register/register.component';
 
 const appRoutes:Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'contact', component:ContactComponent},
   {path: 'aboutUs', component:AboutUsComponent},
   {path: 'update/:id', component:UpdateComponent},
+  {path: 'register', component: RegisterComponent},
   {path: '', component:LoginComponent},
   {path: '**', component:ErrorComponent}
   
@@ -41,7 +43,8 @@ const appRoutes:Routes = [
     ErrorComponent,
     ChildComponent,
     UpdateComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
